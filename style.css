@@ -1,0 +1,111 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+html {
+  color-scheme: dark light;
+}
+html,
+body {
+  height: 100%;
+  line-height: 1.4;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+img,
+svg,
+video,
+picture {
+  max-width: 100%;
+  display: block;
+  object-fit: contain;
+  object-position: center;
+}
+h1,
+h2,
+h3 {
+  line-height: 1.3;
+  letter-spacing: 1px;
+}
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+span {
+  display: inline-block;
+}
+ul,
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  display: inline-block;
+}
+/* button {
+  background: none;
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 2px;
+  font-weight: 500;
+} */
+
+/* utiliy classes */
+
+.container {
+  height: 100%;
+  margin-inline: auto;
+  padding-inline: 1rem;
+  max-width: 90%;
+  display: flex;
+  align-items: center;
+}
+
+/******** style ********/
+
+.infinite-slider {
+  border: 5px solid rgb(234, 234, 234);
+  border-radius: 1rem;
+  padding: 2rem;
+  overflow: hidden;
+  display: flex;
+  gap: 2rem;
+  pointer-events: none;
+}
+.infinite-slider__wrapper {
+  display: flex;
+  gap: 2rem;
+  animation: scroll-animation 5s linear infinite;
+}
+.infinite-slider__wrapper:hover {
+  animation-play-state: paused;
+}
+@keyframes scroll-animation {
+  from {
+    transform: translate(0);
+  }
+  to {
+    transform: translate(calc(-100% - 2rem));
+  }
+}
+.infinite__slider__slide {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1;
+  min-width: 10rem;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  white-space: nowrap;
+}
+.infinite__slider__slide img {
+  filter: grayscale();
+}
