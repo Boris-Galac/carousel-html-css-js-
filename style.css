@@ -46,66 +46,81 @@ a {
   text-decoration: none;
   display: inline-block;
 }
-/* button {
-  background: none;
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  outline: none;
-  border: none;
-  cursor: pointer;
-  border-radius: 2px;
-  font-weight: 500;
-} */
 
-/* utiliy classes */
-
-.container {
-  height: 100%;
-  margin-inline: auto;
-  padding-inline: 1rem;
-  max-width: 90%;
-  display: flex;
-  align-items: center;
-}
-
-/******** style ********/
-
-.infinite-slider {
-  border: 5px solid rgb(234, 234, 234);
-  border-radius: 1rem;
-  padding: 2rem;
-  overflow: hidden;
-  display: flex;
-  gap: 2rem;
-  pointer-events: none;
-}
-.infinite-slider__wrapper {
-  display: flex;
-  gap: 2rem;
-  animation: scroll-animation 5s linear infinite;
-}
-.infinite-slider__wrapper:hover {
-  animation-play-state: paused;
-}
-@keyframes scroll-animation {
-  from {
-    transform: translate(0);
-  }
-  to {
-    transform: translate(calc(-100% - 2rem));
-  }
-}
-.infinite__slider__slide {
+body {
   display: grid;
   place-items: center;
-  aspect-ratio: 1;
-  min-width: 10rem;
-  padding: 2rem;
-  border-radius: 1rem;
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
-  white-space: nowrap;
+  background: linear-gradient(130deg, black, white);
 }
-.infinite__slider__slide img {
+/******** style ********/
+
+.carousel {
+  position: relative;
+  width: min(80vw, 60rem);
+  overflow-x: hidden;
+  border-radius: 1rem;
+}
+.carousel__wrapper {
+  border-radius: 3px;
+  display: flex;
+  justify-content: flex-start;
+}
+.carousel__inner-wrapper {
+  display: flex;
+  height: 100%;
+  width: 500%;
+  flex-shrink: 0;
+  transition: 0.3s;
+}
+.carousel__slide {
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+.carousel__slide p {
+  position: absolute;
+  border: 4px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+  color: #fff;
+  padding: 1rem;
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.carousel__slide img {
   filter: grayscale();
+}
+.buttons {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  width: 95%;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+}
+.buttons button {
+  border: 0;
+  outline: 0;
+}
+i {
+  pointer-events: none;
+}
+.next,
+.previous {
+  aspect-ratio: 1;
+  width: max(5vw, 1rem);
+  color: #fff;
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.097);
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 2rem;
+  font-weight: 800;
+  -webkit-text-stroke: 1px rgb(0, 0, 0);
+  transition: 0.2s;
+}
+.next:hover,
+.previous:hover {
+  scale: 1.2;
 }
